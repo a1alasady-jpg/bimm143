@@ -1,0 +1,98 @@
+---
+title: "Class 10: Structural Bioinformatics (Pt. 1)"
+author: "Ahmed PID:A18518453"
+format: pdf
+toc: true
+---
+
+## The PDB database
+
+The [Protien Data Bank (PDB)](http://www.rcsb.org/ ) is the main repository of biomolecular struture data. Let's see what is in it.
+
+> Q1: What percentage of structures in the PDB are solved by X-Ray and Electron Microscopy.
+
+> Q2: What proportion of structures in the PDB are protein?
+
+```{r}
+stats <- read.csv("pdb_stats.csv", row.names = 1)
+stats
+```
+
+```{r}
+n.sums <- colSums(stats)
+n <- n.sums/n.sums["Total"]
+round(n, digits = 2)
+```
+
+> What is the total number of entries in the PDB
+
+```{r}
+n.sums["Total"]
+```
+
+## Using Molstar
+
+We can use the main [ Molestar viewer online](https://molstar.org/viewer/):
+
+![First view of HIV-Pr dimer with bound inhibitor](1HSG.png)
+
+> Q. Generate and insert an image of the HIV-Pr cartoon colored by secondary structures, showing the inhibitor (ligand) in ball and stick.
+
+![HIV-Pr cartoon colored by secondary structures, showing the inhibitor (ligand) in ball and stick](1HSG (1).png)
+
+
+> Q. One final image showing catalytic APS 25 and the all-important active site molecule as spacefill.
+
+
+![](1HSG (1) copy.png)
+
+```{r}
+library(bio3d)
+
+hiv <- read.pdb("1hsg")
+hiv
+```
+
+```{r}
+head( hiv$atom )
+```
+
+```{r}
+pdbseq(hiv)
+```
+
+Let's try out the new **bio3dview** package is not yet on CRAN.
+We can use the **remotes** package to install any R package from Github.
+
+### Quick Viewing of PDBs
+
+```{r}
+library(bio3dview)
+
+sele <- atom.select(hiv, resno=25)
+#view.pdb(hiv, backgroundColor = "pink", 
+#          highlight = sele,
+#         highlight.style = "spacefill")
+
+```
+
+## Prediction of Protien Flexbility 
+
+```{r}
+adk <- read.pdb("6s36")
+m <- nma(adk)
+plot(m)
+```
+
+Write out our reults as a wee trajectory movie:
+
+```{r}
+mktrj(m, file = "results.pdb")
+```
+
+```{r}
+view.nma(m, pdb=adk)
+```
+
+
+
