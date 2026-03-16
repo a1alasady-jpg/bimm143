@@ -1,12 +1,13 @@
-# BIMM 143 Portfolio
+# BIMM 143 Bioinformatics Portfolio
 
-Welcome to my bioinformatics coursework portfolio for **BIMM 143 at UC San Diego**.
+Ahmed Alasady  
+UC San Diego
 
-## Labs and Projects
+## Course Labs
 
 - [Class 1 – Bioinformatics Databases](lab01.pdf)
 - [Class 2 – Sequence Alignment](lab02.pdf)
-- [Class 3 – Advanced Database Searching](lab03.pdf)
+- [Class 3 – Database Searching](lab03.pdf)
 - [Class 5 – Data Visualization](Class5Data.pdf)
 - [Class 6 – R Functions](Class6.pdf)
 - [Class 8](Class08.pdf)
@@ -24,8 +25,6 @@ Welcome to my bioinformatics coursework portfolio for **BIMM 143 at UC San Diego
 
 ---
 
-## GitHub Repository
+## Repository
 
-View the full project repository here:
-
-https://github.com/a1alasady-jpg/bimm143
+[View the full GitHub repo](https://github.com/a1alasady-jpg/bimm143)
